@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import Card from "./Card"
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
-import styles from "../Css/Home.module.css"
+// import styles from "../Css/Home.module.css"
+import '../Css/Home.css'
 
 
 export default function Home() {
@@ -43,7 +44,7 @@ export default function Home() {
     }
 
     return (
-        <div>
+        <div className='Home'>
             <Link to='/recipe'>Crear Receta</Link>
             <h1>creemos recipes</h1>
             <button onClick={e => { handleClick(e) }}>
@@ -69,7 +70,7 @@ export default function Home() {
                 {
                     currentRecipes?.map((el) => {
                         return (
-                            <div className={styles.Card}>
+                            <div >
                                 <div key={el.id}>
 
                                     <Link to={`/${el.id}`}>

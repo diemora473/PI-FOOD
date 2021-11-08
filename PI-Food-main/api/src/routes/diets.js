@@ -5,38 +5,39 @@ const { Diets, } = require('../db')
 // const { getAllRecipes, getApiInfo, getDbInfo } = require('./Info/recipeInfo')
 // const { API_KEY } = process.env
 const router = Router();
-const { getDiets } = require('./Info/dietsInfo')
+// const { getAllDiet } = require('./Info/dietsInfo');
 
 
-router.get("/", getDiets);
+// router.get("/", getAllDiet);
 
-// const typesDiet = [
-//     "Gruten Free",
-//     "Ketogenic",
-//     "Vegetarian",
-//     "Lacto Vegetarian",
-//     "Ovo Vegetarian",
-//     "Vegan",
-//     "Pescatarian",
-//     "Paleo",
-//     "Primal",
-//     "Low Foomap",
-//     "Whole30"
-// ]
+// router.get("/", getDiets);
 
-// router.get('/types', async (req, res, next) => {
-//     const typesApi = typesDiet
-//     typesApi.forEach(el => {
-//         Diets.findOrCreate({
-//             where: {
-//                 name: el
-//             }
-//         })
-//     })
-//     const allDiets = await Diets.findAll()
-//     res.send(allDiets)
-// })
+const typesDiet = [
+    "Gruten Free",
+    "Lacto Vegetarian",
+    "Ovo Vegetarian",
+    "Vegan",
+    "Primal",
+    "Pescetarian",
+    "Low FODMAP",
+    "Ketogenic",
+    "Whole30",
+    "vegetarian",
+    "Paleo",
+]
 
+router.get('/types', async (req, res, next) => {
+    const typesApi = typesDiet
+    typesApi.forEach(el => {
+        Diets.findOrCreate({
+            where: {
+                name: el
+            }
+        })
+    })
+    const allDiets = await Diets.findAll()
+    res.send(allDiets)
+})
 
 
 module.exports = router;

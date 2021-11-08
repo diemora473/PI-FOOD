@@ -3,8 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 import Home from './Components/Home';
 import LandingPage from './Components/LandingPage'
 import CardDetails from './Components/CardDetails';
-import CreateRecipe from './Components/CreateRecipe';
-
+import Create from './Components/Create';
 function App() {
   return (
     <BrowserRouter>
@@ -13,7 +12,7 @@ function App() {
 
           <Route exact path='/' component={LandingPage} />
           <Route path='/home' component={Home} />
-          <Route exact path='/recipe' component={CreateRecipe} />
+          <Route exact path='/recipe' component={Create} />
           <Route path='/:id'>
             <CardDetails />
           </Route>

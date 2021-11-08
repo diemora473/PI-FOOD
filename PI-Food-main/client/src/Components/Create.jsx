@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { addRecipe, getDiets } from "../Actions/actions"
 import { connect } from "react-redux";
-// import './Create.css';
+import '../Css/Create.css'
 
 export function Create(props) {
     const [state, setState] = React.useState({
@@ -125,12 +125,12 @@ export function Create(props) {
         }
     }, [props.recipe])
 
-    useEffect(() => { //fixes alert loop when going back
-        if (answer.msg) {
-            alert(answer.msg)
-            delete answer.msg
-        }
-    }, [answer])
+    // useEffect(() => { //fixes alert loop when going back
+    //     if (answer.msg) {
+    //         alert(answer.msg)
+    //         delete answer.msg
+    //     }
+    // }, [answer])
 
     return (
         <div className='create'>
