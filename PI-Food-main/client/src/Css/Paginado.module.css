@@ -1,0 +1,21 @@
+a{
+    text-decoration:none;
+    list-style: none;
+    border-radius: 5px;
+    /* display: inline-block; */
+}
+nav{
+    display: inline-block;   
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    left: 5px;
+    
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+    
+}
