@@ -125,12 +125,12 @@ export function Create(props) {
         }
     }, [props.recipe])
 
-    // useEffect(() => { //fixes alert loop when going back
-    //     if (answer.msg) {
-    //         alert(answer.msg)
-    //         delete answer.msg
-    //     }
-    // }, [answer])
+    useEffect(() => { //fixes alert loop when going back
+        if (answer.msg) {
+            alert(answer.msg)
+            delete answer.msg
+        }
+    }, [answer])
 
     return (
         <div className='create'>

@@ -1,21 +1,16 @@
-a{
-    text-decoration:none;
-    list-style: none;
-    border-radius: 5px;
-    /* display: inline-block; */
-}
-nav{
-    display: inline-block;   
-    flex-direction: row;
-    justify-content: space-evenly;
-    border-radius: 5px;
-    left: 5px;
-    
-}
-ul{
+
+.btnPag {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    
-    
-}
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 1px;
+  }
+  
+  .btnPag button {
+    border-radius: 100%;
+    color: rgb(223, 208, 124);
+  }
+  
+  .btnPag button:hover {
+    color: rgb(46, 43, 24);
+  }

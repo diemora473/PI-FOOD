@@ -36,13 +36,19 @@ router.get('/getId/:id', async (req, res, next) => {
             const recipesId = {
                 id: recipe.id,
                 name: recipe.title,
-                diet: recipe.diets,
-                image: recipe.image,
                 diet: recipe.diet,
+                image: recipe.image,
+                // diet: recipe.diet,
                 summary: recipe.summary,
                 spoonacularScore: recipe.spoonacularScore,
                 healthScore: recipe.healthScore,
-
+                // analyzedInstructions: recipe.analyzedInstructions[0]?.step.map(e => {
+                //     return {
+                //         number: e.number,
+                //         step: e.step
+                //     }
+                // })
+                analyzedInstructions: recipe.analyzedInstructions[0],
             }
             res.send(recipesId)
         }

@@ -18,7 +18,9 @@ const getApiInfo = async () => {
                 // diet: Recipe.diet,
                 summary: Recipe.summary,
                 spoonacularScore: Recipe.spoonacularScore,
-                healthScore: Recipe.healthScore
+                healthScore: Recipe.healthScore,
+                analyzedInstructions: Recipe.analyzedInstructions
+
                 //  analyzedInstructions: Recipe.analyzedInstructions[0]
             }
         })
