@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes, setRecipeOrder, } from "../Actions/actions";
+import { getRecipes, setRecipeOrder, filterCreated } from "../Actions/actions";
 import { Link } from "react-router-dom";
 import Card from "./Card"
 import Paginado from "./Paginado";
@@ -10,15 +10,17 @@ import FilterByDiets from "./Filters/Filters.Diets";
 import '../Css/Home.css'
 
 
-export default function Home(props) {
+export default function Home() {
     const dispatch = useDispatch()
     const allrecipes = useSelector((state) => state.recipes)
+    console.log(allrecipes)
     const [orden, setOrden] = useState("")
     const [CurrentPage, setCurrentPage] = useState(1)
     const [RecipesPerPage, setRecipesPerPage] = useState(9)
     const indexOfLastRecipe = CurrentPage * RecipesPerPage
     const indexOfFirstRecipe = indexOfLastRecipe - RecipesPerPage
-    const currentRecipes = allrecipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+    // console.log(allrecipes)
+    const currentRecipes = allrecipes?.slice(indexOfFirstRecipe, indexOfLastRecipe)
     const [state, setState] = React.useState({
         filter: 'see-all',
         order: 'see-all',
@@ -38,29 +40,22 @@ export default function Home(props) {
         })
         dispatch(setRecipeOrder(order));
     }
+    function handlefilterCreated(e) {
+        dispatch(filterCreated(e.target.value))
+    }
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => {
-        dispatch(getRecipes())
-    }, [dispatch])
+    console.log(currentRecipes)
+
 
     function handleClick(e) {
         e.preventDefault();
         dispatch(getRecipes())
     }
 
-    // function handleSort(e) {
-    //     e.preventDefault();
-    //     dispatch(orderMyName(e.target.value))
-    //     setCurrentPage(1)
-    //     setOrden(`Ordenado${e.target.value}`)
-    // }
-    // function handleFilterStatus(el) {
-    //     dispatch(filterRecipesByStatus(el.target.value))
-    //     console.log(filterRecipesByStatus)
-    // }
+
 
     return (
         <div className='Home'>
@@ -80,11 +75,15 @@ export default function Home(props) {
                 <span>Order by:</span>
                 <select name="order"
                     onChange={(e) => orderBy(e.target.value)}>
-                    <option value="see-all">See all</option>
+                    <option value="see-all" onClick={e => { handleClick(e) }}>See all</option>
                     <option value="score-asc">Lowest Score</option>
                     <option value="score-desc">Higher Score</option>
                     <option value="alph-asc">A-Z</option>
                     <option value="alph-desc">Z-A</option>
+                </select>
+                <select onChange={(e) => filterCreated(e)}>
+                    <option value="All">All</option>
+                    <option value="created">Created</option>
                 </select>
             </div>
 
@@ -111,7 +110,8 @@ export default function Home(props) {
                                 <div key={el.id}>
 
                                     <Link to={`/${el.id}`} className="linkCard">
-                                        <Card name={el.name} diet={el.diets} spoonacularScore={'Score' + ' ' + el.spoonacularScore} image={el.image} />
+                                        <Card
+                                            name={el.name} diets={el.diets + "llegaaaaaaaaa"} spoonacularScore={'Score' + ' ' + el.spoonacularScore} image={el.image} />
                                     </Link>
 
                                 </div>

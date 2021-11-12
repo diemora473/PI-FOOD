@@ -1,5 +1,9 @@
+body{
+  background-image: url("../images/bkgCreate.jpg");
+
+}
+
 .detail {
-    background-image: url("../images/bkgCreate.jpg");
     margin: 0;
     width: 100%;
     height: auto;
@@ -10,6 +14,7 @@
     font-family: "Comic Neue", cursive;
     color: rgb(223, 208, 124);
   }
+ 
   
   .detail button {
     border-color: rgb(223, 208, 124);

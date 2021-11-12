@@ -31,19 +31,19 @@ const getApiInfo = async () => {
     }
 }
 const getDbInfo = async () => {
+    console.log(Diet)
     return await Recipe.findAll({
         include:
             Diet,
-        attributes: ['name'],
-        through: {
-            attributes: []
-        }
+        through: { attributes: [] }
+
     })
+
 }
 const getAllRecipes = async () => {
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
-
+    console.log(dbInfo + 'hola')
     let infoTotal = [...apiInfo, ...dbInfo]
     return infoTotal
 }

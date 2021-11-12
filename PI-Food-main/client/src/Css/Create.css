@@ -1,197 +1,127 @@
 .create {
-    background-image: url('../images/lettuce-background.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 12px;
-  }
-  
-  .form-box {
-    background: linear-gradient(135deg, #ecf87f, #59981a);
-    width: 60%;
-    max-width: 1000px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    padding: 8px;
-  }
-  
-  .form-box .title {
-    font-size: 25px;
-    font-weight: 500;
-    position: relative;
-    color: #16442b;
-    margin: 8px;
-    padding-bottom: 8px;
-  }
-  
-  .form-box .title::before{
-    content: '';
-    position: absolute;
-    left: 0; bottom: 0;
-    height: 3px; width: 30px;
-    background-color: #59981a;
-  }
-  
-  form .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .container .column .field{
-    width: 200px;
-  }
-  
-  .column .field label{
-    font-weight: 600;
-    color: #193727;
-  }
-  
-  .column .field input{
-    height: 32px;
-    width: 100%;
-    margin-top: 5px;
-    outline: none;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
-  }
-  
-  .column .field input:focus,
-  .column .field input:valid{
-    border-color: #59981a;
-  }
-  
-  .column .field textarea{
-    resize: none;
-    height: 120px;
-    width: 100%;
-    margin-top: 5px;
-    outline: none;
-    border-radius: 4px;
-    border: 1px solid #59981a;
-    padding-left: 15px;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
-  }
-  
-  .column .field select{
-    width: 108%;
-    height: 28px;
-    margin-top: 5px;
-    outline: none;
-    border-radius: 4px;
-    border: 1px solid #59981a;
-    padding-left: 8px;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
-  }
-  
-  .column .field .diet-box{
-    background-color: #ffffff;
-    margin-top: 5px;
-    outline: none;
-    border-radius: 4px;
-    border: 1px solid #59981a;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
-    height: 100px;
-    overflow-y: scroll;
-    width: 215px;
-  }
-  
-  .field .diet-box ul{
-    list-style: none;
-  }
-  
-  .diet-box ul li{
-    margin-bottom: 4px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
-  .diet-box ul .remove-diet-button{
-    margin-left: 8px;
-  }
-  
-  .field {
-    margin: 24px 24px;
-    position: relative;
-  }
-  
-  .add-button {
-    border: 1px solid #556d3d;
-    border-radius: 4px;
-    outline: none;
-    color: #59981a;
-    margin-left: 5px;
-    font-weight: 600;
-    transition: all 0.1s ease;
-  }
-  
-  .add-button:hover{
-    background-color: #59981a;
-    color: white;
-    transition: all 0.1s ease;
-  }
-  
-  .step-list {
-    max-height: 400px;
-    overflow-y: scroll;
-  }
-  
-  .step-list div {
-    display: flex;
-    justify-content: space-between;
-    margin: 4px;
-  }
-  
-  .step-list input {
-    width: 80%;
-  }
-  
-  .step-list button {
-    padding: 0 5px;
-    margin: 0 2px;
-  }
-  
-  .submit-button-box{
-    height: 45px;
-    margin: 24px 0;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  
-  #submit-button {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: gray;
-    border: none;
-    border-radius: 3px;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    background-color: #f0f3ce;
-  }
-  
-  #submit-button:valid {
-    background-color: #16442b;
-    transition: all 0.2s ease;
-    color: #f0f3ce;
-  }
-  
-  #submit-button:valid:hover {
-    transition: all 0.2s ease;
-    background-color: #548721;
-    color: #16442b;
-  }
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-image: url("../images/bkgCreate.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Comic Neue", cursive;
+}
+
+.create button {
+  border-color: rgb(223, 208, 124);
+  border: solid 2px;
+  border-width: 0.5px;
+  border-radius: 100px;
+  background-color: rgb(88, 72, 45);
+  transition: background-color 0.25s, color 0.25s;
+  padding: 7px;
+  font-family: "Comic Neue", cursive;
+  cursor: pointer;
+  color: rgb(223, 208, 124);
+}
+.create button:hover {
+  background-color: rgb(126, 123, 126);
+  color: white;
+  border: 2px outset rgba(119, 98, 28, 0.8);
+}
+.buttonToHome {
+  margin-top: 10px;
+  margin-left: 90%;
+  margin-bottom: 0px;
+}
+
+.create h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0;
+  font-size: 40px;
+  text-shadow: rgb(19, 19, 18) -3px 1px;
+  font-family: "Comic Neue", cursive;
+  color: rgb(207, 193, 112);
+}
+
+.create form {
+  margin-left: 35%;
+  margin-top: 20px;
+  font-family: "Mulish", sans-serif;
+  color: rgb(207, 193, 112);
+  text-shadow: rgb(19, 19, 18) -0.5px 0.5px;
+  font-size: 15px;
+}
+
+.create label {
+  margin-right: 8px;
+}
+
+.inputCreate {
+  font-size: 13px;
+  height: 13px;
+}
+::placeholder {
+  color: rgb(131, 131, 124);
+}
+
+.form div {
+  margin-bottom: 10px;
+}
+
+.form p {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 40%;
+  color: rgb(248, 46, 46);
+  background-color: rgb(19, 18, 18);
+  width: 180px;
+  float: right;
+  padding: 2px;
+}
+
+.instruction {
+  width: 400px;
+}
+.labelInstr {
+  display: flex;
+}
+
+.create span {
+  margin-right: 6px;
+}
+
+.dietsCreate li {
+  float: left;
+  justify-content: flex-start;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.dietsCreate ul {
+  margin-top: 12px;
+}
+
+.dietsCreate button {
+  background-color: rgb(156, 54, 28);
+  border-color: rgb(189, 202, 117);
+  border-radius: 9999px;
+  font-size: 10px;
+  padding: 2px;
+  margin-top: 0;
+  margin-left: 5px;
+  width: 18px;
+}
+
+.dietsCreate button:hover {
+  background-color: rgb(126, 123, 126);
+  color: white;
+  border: 2px outset rgba(119, 98, 28, 0.8);
+  width: 20px;
+}
+
+.btnCreate {
+  margin-left: 50%;
+}

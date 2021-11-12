@@ -1,13 +1,18 @@
+body{
+  background-image: url("../images/bkgHome.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .Home {
-    margin: 10;
+    margin: center;
     width: 100%;
     height: auto;
     position: absolute;
-    background-image: url("../images/bkgHome.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+    background-position: absolute;
     background-attachment: fixed;
     font-family: "Comic Neue", cursive;
+    
   }
   .home h1 {
     display: flex;
@@ -21,7 +26,7 @@
   }
   .btnCreate {
     border: solid 2px transparent;
-    border-color: rgb(223, 208, 124);
+    border-color: rgb(0, 0, 0);
     border-width: 0.5px;
     border-radius: 100px;
     display: flex;
@@ -33,7 +38,7 @@
     background-color: transparent;
     transition: background-color 0.25s, color 0.25s;
     cursor: pointer;
-    color: rgb(223, 208, 124);
+    color: rgb(0, 0, 0);
     font-size: 1rem;
   }
   .btnCreate:hover {
@@ -69,6 +74,7 @@
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 5px;
   }
   .span {
     display: flex;

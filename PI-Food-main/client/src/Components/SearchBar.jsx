@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getNameRecipes } from "../Actions/actions";
 import '../Css/SearchBar.css'
 
@@ -9,6 +9,9 @@ export default function SearchBar() {
     const [name, setName] = useState("")
     const [state, setState] = useState("")
 
+
+    const recipesAll = useSelector((state) => state.recipes)
+
     function handleInputChange(e) {
         e.preventDefault()
         setName(e.target.value)
@@ -16,6 +19,10 @@ export default function SearchBar() {
     }
     function handleSubmit(e) {
         e.preventDefault()
+        const toSearch = name.toLowerCase()
+        const validate = recipesAll.filter((el) => el.name.toLowerCase().includes(toSearch))
+        if (validate.length < 1 || validate.length === null)
+            return alert('no recipe with that name found')
         dispatch(getNameRecipes(name))
     }
     // function handleKeyPress(event) {

@@ -1,12 +1,12 @@
 
 let initialState = {
-    recipe: { result: [] },
     recipes: [],
     recipesRender: [],
     allrecipes: [],
     types: [],
     diets: [],
-    diet: "",
+    details: [],
+
 }
 
 export default function rootReducer(state = initialState, action, payload) {
@@ -14,12 +14,24 @@ export default function rootReducer(state = initialState, action, payload) {
         case 'GET_RECIPES':
             return {
                 ...state,
-                recipes: action.payload
+                recipes: action.payload,
+                allrecipes: action.payload
+
             }
+        case 'GET_RECIPE_DETAIL':
+            return {
+                ...state,
+                detail: payload
+            };
         case 'GET_NAME_RECIPES':
             return {
                 ...state,
                 recipes: action.payload
+            }
+        case 'GET_DIETS':
+            return {
+                ...state,
+                diets: action.payload
             }
         case 'POST_RECIPE':
             return {
@@ -31,59 +43,21 @@ export default function rootReducer(state = initialState, action, payload) {
                 postedRecipe: action.payload
             }
         case 'FILTER_BY_DIET':
-            const data = state.recipe.result.filter(el => {
-                debugger
-                return el.diets === payload
+            console.log(action.payload)
+            console.log(state.recipes)
+            const data = state.allrecipes.filter(el => {
+
+                return el.diet?.includes(action.payload.toLowerCase())
+
             })
             return {
                 ...state,
-                recipes: {
-                    result: data
-                }
+                recipes: data
+
             }
-
-        // case 'GET_TYPES':
-        //     return {
-        //         ...state,
-        //         types: action.payload
-        //     }
-
-        // case 'FILTER_BY_STATUS':
-        //     const allrecipes = state.recipes
-        //     const statusFiltered = action.payload === 'All' ? allrecipes : allrecipes.filter(el => el.state === action.payload)
-        //     return {
-        //         ...state,
-        //         recipes: statusFiltered
-
-        //     }
-        // case 'ORDER_MY_NAME':
-        //     let sortedArr = action.payload === "asc" ?
-        //         state.recipes.sort(function (a, b) {
-        //             if (a.name > b.name) {
-        //                 return 1;
-        //             }
-        //             if (b.name > a.name) {
-        //                 return -1;
-        //             }
-        //             return 0;
-        //         }) :
-        //         state.recipes.sort(function (a, b) {
-        //             if (a.name > b.name) {
-        //                 return -1;
-        //             }
-        //             if (b.name > a.name) {
-        //                 return 1;
-        //             }
-        //             return 0
-        //         })
-        //     return {
-        //         ...state,
-        //         recipes: sortedArr
-        //     }
 
         case "SET_ORDER":
             var orderedRecipes = state.recipes;
-            debugger
             if (action.payload === "see-all") {
 
                 orderedRecipes.sort((a, b) => {
@@ -100,7 +74,6 @@ export default function rootReducer(state = initialState, action, payload) {
                 })
             } //sorts by asc score
             if (action.payload === "score-desc") {
-                debugger
                 orderedRecipes.sort((a, b) => {
                     if (a.spoonacularScore < b.spoonacularScore) return 1;
                     if (a.spoonacularScore > b.spoonacularScore) return -1;
@@ -125,7 +98,12 @@ export default function rootReducer(state = initialState, action, payload) {
                 ...state,
                 recipesRender: orderedRecipes
             }
-
+        case 'FILTER_CREATED':
+            const createdFilter = action.payload === 'created' ? state.allrecipes.filter((el) => el.createdInDb) : state.allrecipes.filter((el) => !el.createdInDb)
+            return {
+                ...state,
+                recipes: createdFilter
+            }
         default: return initialState
     }
 

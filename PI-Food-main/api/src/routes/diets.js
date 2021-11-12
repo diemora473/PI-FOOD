@@ -1,7 +1,7 @@
 // const { default: axios } = require('axios');
 const { Router } = require('express');
 // const { is } = require('sequelize/types/lib/operators');
-const { Diets, } = require('../db')
+const { Diet, } = require('../db')
 // const { getAllRecipes, getApiInfo, getDbInfo } = require('./Info/recipeInfo')
 // const { API_KEY } = process.env
 const router = Router();
@@ -13,29 +13,33 @@ const router = Router();
 // router.get("/", getDiets);
 
 const typesDiet = [
-    "Gruten Free",
+    "gluten free",
+    "dairy free",
+    "lacto ovo vegetarian",
     "Lacto Vegetarian",
     "Ovo Vegetarian",
-    "Vegan",
-    "Primal",
-    "Pescetarian",
-    "Low FODMAP",
-    "Ketogenic",
-    "Whole30",
+    "paleolithic",
+    "fodmap friendly",
+    "vegan",
+    "primal",
+    "pescetarian",
+    "low FODMAP",
+    "ketogenic",
+    "whole 30",
     "vegetarian",
-    "Paleo",
+    "paleo",
 ]
 
 router.get('/types', async (req, res, next) => {
     const typesApi = typesDiet
     typesApi.forEach(el => {
-        Diets.findOrCreate({
+        Diet.findOrCreate({
             where: {
                 name: el
             }
         })
     })
-    const allDiets = await Diets.findAll()
+    const allDiets = await Diet.findAll()
     res.send(allDiets)
 })
 
